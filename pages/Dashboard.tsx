@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Coins, Package, Award, ArrowRight, Zap, Sparkles, Heart } from 'lucide-react';
+import { Coins, Package, Award, ArrowRight, Zap, Sparkles, Heart, Stars } from 'lucide-react';
 import StatCard from '../components/StatCard';
 import { Link } from 'react-router-dom';
 
@@ -50,7 +50,20 @@ const Dashboard: React.FC = () => {
           </Link>
         </div>
         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-110 transition-transform"></div>
-        <div className="absolute -top-5 -left-5 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+      </section>
+
+      {/* New Fortune Entry */}
+      <section className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-[2rem] p-6 border border-white shadow-md flex justify-between items-center group cursor-pointer">
+        <Link to="/fortune" className="flex items-center gap-4 w-full">
+          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm text-purple-400 animate-pulse">
+            <Stars size={28} />
+          </div>
+          <div className="flex-1">
+            <h4 className="font-cute text-2xl text-purple-500 leading-none">Today's Fortune</h4>
+            <p className="text-xs text-purple-300 font-bold uppercase tracking-wider">What do the stars say? ✨</p>
+          </div>
+          <ArrowRight className="text-purple-300 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </section>
 
       <section>

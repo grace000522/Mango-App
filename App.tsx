@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Home, ClipboardList, PlusCircle, MessageSquare, Bell, Heart } from 'lucide-react';
+import { Home, ClipboardList, PlusCircle, MessageSquare, Bell, Heart, Stars } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import RequestPage from './pages/RequestPage';
 import HistoryPage from './pages/HistoryPage';
 import AIChatPage from './pages/AIChatPage';
+import FortunePage from './pages/FortunePage';
 
 const RabbitWithMangoLogo = () => (
   <svg viewBox="0 0 100 100" className="w-10 h-10 drop-shadow-sm" style={{ animation: 'bounce-subtle 3s ease-in-out infinite' }}>
@@ -60,11 +61,12 @@ const Navigation = () => {
     { path: '/', icon: Home, label: 'Home' },
     { path: '/history', icon: ClipboardList, label: 'History' },
     { path: '/request', icon: PlusCircle, label: 'Request' },
-    { path: '/ai-chat', icon: MessageSquare, label: 'MangoBot' },
+    { path: '/ai-chat', icon: MessageSquare, label: 'Bot' },
+    { path: '/fortune', icon: Stars, label: 'Stars' },
   ];
 
   return (
-    <nav className="fixed bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md border border-pink-100 px-6 py-3 flex justify-between items-center z-50 rounded-[2.5rem] shadow-xl shadow-pink-200/20">
+    <nav className="fixed bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md border border-pink-100 px-4 py-3 flex justify-between items-center z-50 rounded-[2.5rem] shadow-xl shadow-pink-200/20">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = location.pathname === item.path;
@@ -79,7 +81,7 @@ const Navigation = () => {
             <div className={`p-2 rounded-full transition-colors ${isActive ? 'bg-pink-50' : ''}`}>
               <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
             </div>
-            <span className="text-[10px] font-bold tracking-tight uppercase">{item.label}</span>
+            <span className="text-[9px] font-bold tracking-tight uppercase">{item.label}</span>
           </Link>
         );
       })}
@@ -119,6 +121,7 @@ const App: React.FC = () => {
             <Route path="/request" element={<RequestPage />} />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/ai-chat" element={<AIChatPage />} />
+            <Route path="/fortune" element={<FortunePage />} />
           </Routes>
         </main>
         <Navigation />

@@ -70,3 +70,42 @@ export const getAIAdvice = async (message: string) => {
     return "Sorry, MangoBot is thinking right now. Please ask again in a moment!";
   }
 };
+
+export const getFortune = async (zodiac: string) => {
+  const model = 'gemini-3-flash-preview';
+  const prompt = `You are a mystical and cute fortune teller. Based on the zodiac sign "${zodiac}", provide a fun and encouraging daily fortune.
+Include:
+1. Predicted weather for the day.
+2. Luck rating (1 to 5 stars).
+3. A lucky color to wear today.
+4. A lucky food to eat.
+5. A short sweet prediction message.
+
+Return the response in JSON format.`;
+
+  try {
+    const response = await ai.models.generateContent({
+      model,
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            weather: { type: Type.STRING },
+            luckRating: { type: Type.NUMBER },
+            luckyColor: { type: Type.STRING },
+            luckyFood: { type: Type.STRING },
+            message: { type: Type.STRING },
+          },
+          required: ["weather", "luckRating", "luckyColor", "luckyFood", "message"]
+        }
+      }
+    });
+    const text = response.text;
+    return text ? JSON.parse(text) : null;
+  } catch (error) {
+    console.error("Gemini fortune failed:", error);
+    return null;
+  }
+};
