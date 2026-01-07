@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Camera, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { classifyWaste } from '../services/geminiService.ts';
+import { classifyWaste } from '../services/geminiService';
 
 const RequestPage: React.FC = () => {
   const [description, setDescription] = useState('');
@@ -45,7 +45,6 @@ const RequestPage: React.FC = () => {
       </section>
 
       <div className="space-y-6">
-        {/* Photo Upload */}
         <div 
           onClick={() => fileInputRef.current?.click()}
           className="w-full aspect-video bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-3 cursor-pointer overflow-hidden group hover:border-yellow-400 transition-colors"
@@ -69,7 +68,6 @@ const RequestPage: React.FC = () => {
           />
         </div>
 
-        {/* Description Input */}
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700 ml-1">상세 설명</label>
           <textarea
@@ -80,7 +78,6 @@ const RequestPage: React.FC = () => {
           />
         </div>
 
-        {/* AI Action Button */}
         {!classificationResult && (
           <button
             onClick={handleClassify}
@@ -95,7 +92,6 @@ const RequestPage: React.FC = () => {
           </button>
         )}
 
-        {/* Results Section */}
         {classificationResult && (
           <div className="p-6 bg-orange-50 rounded-3xl border border-orange-100 animate-in zoom-in-95 duration-300 space-y-4">
             <div className="flex items-center gap-2 text-orange-600 font-bold mb-2">

@@ -1,19 +1,17 @@
 
 import React from 'react';
 import { Coins, Package, Award, ArrowRight, Zap } from 'lucide-react';
-import StatCard from '../components/StatCard.tsx';
+import StatCard from '../components/StatCard';
 import { Link } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   return (
     <div className="flex flex-col gap-8 animate-in fade-in duration-500">
-      {/* Welcome Section */}
       <section>
         <h2 className="text-2xl font-bold text-gray-800">안녕하세요, 김망고님! 👋</h2>
         <p className="text-gray-500">오늘도 지구를 위한 배출, 감사합니다.</p>
       </section>
 
-      {/* Stats Grid */}
       <section className="grid grid-cols-2 gap-4">
         <StatCard 
           label="나의 망고 포인트" 
@@ -41,7 +39,6 @@ const Dashboard: React.FC = () => {
         />
       </section>
 
-      {/* Main Banner */}
       <section className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
         <div className="relative z-10">
           <h3 className="text-xl font-bold mb-2">대형 폐기물 배출,<br/>AI로 간편하게 찍으세요</h3>
@@ -53,7 +50,6 @@ const Dashboard: React.FC = () => {
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-10 -mt-10 blur-2xl"></div>
       </section>
 
-      {/* Recent Activity */}
       <section>
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-bold text-gray-800">최근 배출 현황</h3>

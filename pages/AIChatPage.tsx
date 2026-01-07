@@ -1,8 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, User, Bot, Loader2 } from 'lucide-react';
-import { getAIAdvice } from '../services/geminiService.ts';
-import { ChatMessage } from '../types.ts';
+import { getAIAdvice } from '../services/geminiService';
+import { ChatMessage } from '../types';
 
 const AIChatPage: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -41,7 +41,6 @@ const AIChatPage: React.FC = () => {
         <p className="text-gray-500">지능형 자원 순환 어드바이저</p>
       </header>
 
-      {/* Chat Area */}
       <div 
         ref={scrollRef}
         className="flex-1 overflow-y-auto space-y-4 pr-2 scroll-smooth"
@@ -77,7 +76,6 @@ const AIChatPage: React.FC = () => {
         )}
       </div>
 
-      {/* Input Area */}
       <div className="mt-4 relative">
         <input 
           type="text" 
@@ -96,7 +94,6 @@ const AIChatPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Quick Suggestions */}
       <div className="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
         {['스티로폼 배출법', '침대 수거 비용', '폐건전지 수거함 위치', '포인트 사용처'].map(tag => (
           <button 
