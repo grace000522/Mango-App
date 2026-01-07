@@ -17,7 +17,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-yellow-100 px-6 py-3 flex justify-between items-center z-50">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 px-6 py-3 flex justify-between items-center z-50">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = location.pathname === item.path;
@@ -26,7 +26,7 @@ const Navigation = () => {
             key={item.path}
             to={item.path}
             className={`flex flex-col items-center gap-1 transition-colors ${
-              isActive ? 'text-orange-500 font-bold' : 'text-gray-400'
+              isActive ? 'text-rose-500 font-bold' : 'text-gray-400'
             }`}
           >
             <Icon size={24} />
@@ -39,19 +39,19 @@ const Navigation = () => {
 };
 
 const Header = () => (
-  <header className="sticky top-0 bg-yellow-400 px-6 py-4 flex justify-between items-center shadow-md z-50">
+  <header className="sticky top-0 bg-rose-400 px-6 py-4 flex justify-between items-center shadow-md z-50">
     <div className="flex items-center gap-2">
       <div className="bg-white p-1.5 rounded-lg shadow-sm">
-        <Leaf className="text-orange-500 fill-orange-500" size={24} />
+        <Leaf className="text-rose-500 fill-rose-500" size={24} />
       </div>
       <h1 className="text-xl font-black text-white tracking-tighter">MANGO SYSTEM</h1>
     </div>
     <div className="flex items-center gap-4">
       <button className="text-white relative">
         <Bell size={24} />
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full border-2 border-yellow-400">2</span>
+        <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full border-2 border-rose-400">2</span>
       </button>
-      <div className="w-8 h-8 rounded-full bg-orange-100 border-2 border-white overflow-hidden">
+      <div className="w-8 h-8 rounded-full bg-rose-100 border-2 border-white overflow-hidden">
         <img src="https://picsum.photos/seed/user/100" alt="profile" />
       </div>
     </div>

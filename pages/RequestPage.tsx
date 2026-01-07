@@ -47,13 +47,13 @@ const RequestPage: React.FC = () => {
       <div className="space-y-6">
         <div 
           onClick={() => fileInputRef.current?.click()}
-          className="w-full aspect-video bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-3 cursor-pointer overflow-hidden group hover:border-yellow-400 transition-colors"
+          className="w-full aspect-video bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-3 cursor-pointer overflow-hidden group hover:border-rose-400 transition-colors"
         >
           {image ? (
             <img src={image} alt="Upload preview" className="w-full h-full object-cover" />
           ) : (
             <>
-              <div className="p-4 bg-white rounded-full text-gray-400 group-hover:text-yellow-500 transition-colors">
+              <div className="p-4 bg-white rounded-full text-gray-400 group-hover:text-rose-500 transition-colors">
                 <Camera size={32} />
               </div>
               <span className="text-gray-500 font-medium">사진 촬영 또는 업로드</span>
@@ -74,7 +74,7 @@ const RequestPage: React.FC = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="예: 다리가 부러진 목재 의자 1개"
-            className="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 min-h-[100px] resize-none"
+            className="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-400 min-h-[100px] resize-none"
           />
         </div>
 
@@ -82,7 +82,7 @@ const RequestPage: React.FC = () => {
           <button
             onClick={handleClassify}
             disabled={isClassifying || (!description && !image)}
-            className="w-full py-4 bg-yellow-400 text-white font-black rounded-2xl shadow-lg shadow-yellow-200 hover:bg-yellow-500 transition-colors disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2"
+            className="w-full py-4 bg-rose-400 text-white font-black rounded-2xl shadow-lg shadow-rose-200 hover:bg-rose-500 transition-colors disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2"
           >
             {isClassifying ? (
               <Loader2 className="animate-spin" />
@@ -93,8 +93,8 @@ const RequestPage: React.FC = () => {
         )}
 
         {classificationResult && (
-          <div className="p-6 bg-orange-50 rounded-3xl border border-orange-100 animate-in zoom-in-95 duration-300 space-y-4">
-            <div className="flex items-center gap-2 text-orange-600 font-bold mb-2">
+          <div className="p-6 bg-rose-50 rounded-3xl border border-rose-100 animate-in zoom-in-95 duration-300 space-y-4">
+            <div className="flex items-center gap-2 text-rose-600 font-bold mb-2">
               <CheckCircle2 size={20} />
               <span>AI 분석 결과</span>
             </div>
@@ -106,7 +106,7 @@ const RequestPage: React.FC = () => {
               </div>
               <div className="bg-white p-3 rounded-xl">
                 <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">예상 수거비용</p>
-                <p className="font-bold text-orange-600">{classificationResult.estimatedValue}</p>
+                <p className="font-bold text-rose-600">{classificationResult.estimatedValue}</p>
               </div>
             </div>
 
@@ -125,11 +125,11 @@ const RequestPage: React.FC = () => {
             <div className="flex gap-3 pt-4">
               <button 
                 onClick={resetForm}
-                className="flex-1 py-3 bg-white border border-orange-200 text-orange-500 font-bold rounded-xl"
+                className="flex-1 py-3 bg-white border border-rose-200 text-rose-500 font-bold rounded-xl"
               >
                 다시 찍기
               </button>
-              <button className="flex-2 py-3 bg-orange-500 text-white font-bold rounded-xl px-8 shadow-md">
+              <button className="flex-2 py-3 bg-rose-500 text-white font-bold rounded-xl px-8 shadow-md">
                 신청 완료
               </button>
             </div>

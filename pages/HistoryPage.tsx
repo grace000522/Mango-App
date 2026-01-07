@@ -27,7 +27,7 @@ const HistoryPage: React.FC = () => {
         <input 
           type="text" 
           placeholder="신청 품목 검색..." 
-          className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-2xl border border-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-2xl border border-gray-100 focus:outline-none focus:ring-2 focus:ring-rose-400"
         />
       </div>
 
@@ -44,7 +44,7 @@ const HistoryPage: React.FC = () => {
                   <div className="flex justify-between items-start">
                     <h4 className="font-bold text-gray-800 leading-tight">{item.title}</h4>
                     <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${
-                      item.status === '수거 완료' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
+                      item.status === '수거 완료' ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-600'
                     }`}>
                       {item.status}
                     </span>

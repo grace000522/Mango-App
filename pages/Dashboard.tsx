@@ -16,8 +16,8 @@ const Dashboard: React.FC = () => {
         <StatCard 
           label="나의 망고 포인트" 
           value="12,450 P" 
-          icon={<Coins className="text-amber-600" />} 
-          color="bg-amber-50"
+          icon={<Coins className="text-rose-600" />} 
+          color="bg-rose-50"
         />
         <StatCard 
           label="누적 배출 횟수" 
@@ -34,16 +34,16 @@ const Dashboard: React.FC = () => {
         <StatCard 
           label="탄소 절감량" 
           value="12.4kg" 
-          icon={<Zap className="text-orange-600" />} 
-          color="bg-orange-50"
+          icon={<Zap className="text-pink-600" />} 
+          color="bg-pink-50"
         />
       </section>
 
-      <section className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+      <section className="bg-gradient-to-br from-rose-400 to-pink-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
         <div className="relative z-10">
           <h3 className="text-xl font-bold mb-2">대형 폐기물 배출,<br/>AI로 간편하게 찍으세요</h3>
-          <p className="text-yellow-100 text-sm mb-4">분류부터 수거 신청까지 1분이면 끝!</p>
-          <Link to="/request" className="inline-flex items-center gap-2 bg-white text-orange-600 px-5 py-2.5 rounded-full font-bold text-sm shadow-sm hover:scale-105 transition-transform">
+          <p className="text-rose-100 text-sm mb-4">분류부터 수거 신청까지 1분이면 끝!</p>
+          <Link to="/request" className="inline-flex items-center gap-2 bg-white text-rose-600 px-5 py-2.5 rounded-full font-bold text-sm shadow-sm hover:scale-105 transition-transform">
             배출 신청하기 <ArrowRight size={16} />
           </Link>
         </div>
@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="flex flex-col gap-3">
           {[
-            { id: 1, item: '냉장고 (대형)', date: '2024.05.20', status: '수거 대기', color: 'text-amber-500' },
+            { id: 1, item: '냉장고 (대형)', date: '2024.05.20', status: '수거 대기', color: 'text-rose-500' },
             { id: 2, item: '목재 테이블', date: '2024.05.15', status: '수거 완료', color: 'text-emerald-500' },
           ].map((item) => (
             <div key={item.id} className="flex justify-between items-center p-4 bg-gray-50 rounded-2xl border border-gray-100">
