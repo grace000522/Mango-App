@@ -2,10 +2,10 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Home, ClipboardList, PlusCircle, MessageSquare, Leaf, Bell } from 'lucide-react';
-import Dashboard from './pages/Dashboard.tsx';
-import RequestPage from './pages/RequestPage.tsx';
-import HistoryPage from './pages/HistoryPage.tsx';
-import AIChatPage from './pages/AIChatPage.tsx';
+import Dashboard from './pages/Dashboard';
+import RequestPage from './pages/RequestPage';
+import HistoryPage from './pages/HistoryPage';
+import AIChatPage from './pages/AIChatPage';
 
 const Navigation = () => {
   const location = useLocation();
@@ -61,7 +61,7 @@ const Header = () => (
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen pb-24 max-w-md mx-auto bg-white shadow-2xl relative">
+      <div className="min-h-screen pb-24 max-w-md mx-auto bg-white shadow-2xl relative overflow-x-hidden">
         <Header />
         <main className="p-6">
           <Routes>

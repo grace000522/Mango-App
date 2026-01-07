@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Coins, Package, Award, ArrowRight, Zap } from 'lucide-react';
-import StatCard from '../components/StatCard.tsx';
+import StatCard from '../components/StatCard';
 import { Link } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
