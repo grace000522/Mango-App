@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { Camera, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Camera, Loader2, CheckCircle2, AlertCircle, Sparkles, Heart } from 'lucide-react';
 import { classifyWaste } from '../services/geminiService';
 
 const RequestPage: React.FC = () => {
@@ -38,25 +38,25 @@ const RequestPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 animate-in slide-in-from-bottom-4 duration-500">
+    <div className="flex flex-col gap-8 animate-in slide-in-from-bottom-6 duration-700">
       <section>
-        <h2 className="text-2xl font-bold text-gray-800">배출 신청하기</h2>
-        <p className="text-gray-500">폐기물을 촬영하거나 설명을 적어주세요.</p>
+        <h2 className="text-3xl font-bold text-gray-800 tracking-tight font-cute">New Request! ✨</h2>
+        <p className="text-pink-300 font-bold text-sm">Snap a photo or tell us about it~</p>
       </section>
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div 
           onClick={() => fileInputRef.current?.click()}
-          className="w-full aspect-video bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-3 cursor-pointer overflow-hidden group hover:border-rose-400 transition-colors"
+          className="w-full aspect-square bg-pink-50/40 rounded-[3rem] border-4 border-dashed border-pink-100 flex flex-col items-center justify-center gap-4 cursor-pointer overflow-hidden group hover:border-pink-300 hover:bg-pink-50/60 transition-all duration-500 shadow-inner"
         >
           {image ? (
-            <img src={image} alt="Upload preview" className="w-full h-full object-cover" />
+            <img src={image} alt="Upload preview" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
           ) : (
             <>
-              <div className="p-4 bg-white rounded-full text-gray-400 group-hover:text-rose-500 transition-colors">
-                <Camera size={32} />
+              <div className="p-6 bg-white rounded-full text-pink-300 group-hover:text-pink-400 group-hover:rotate-12 transition-all duration-500 shadow-md">
+                <Camera size={40} />
               </div>
-              <span className="text-gray-500 font-medium">사진 촬영 또는 업로드</span>
+              <span className="text-pink-300 font-black text-sm uppercase tracking-[0.2em] animate-pulse">Snap Snap!</span>
             </>
           )}
           <input 
@@ -68,13 +68,13 @@ const RequestPage: React.FC = () => {
           />
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-bold text-gray-700 ml-1">상세 설명</label>
+        <div className="space-y-3">
+          <label className="text-xs font-black text-pink-300 ml-2 uppercase tracking-widest">Little Details</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="예: 다리가 부러진 목재 의자 1개"
-            className="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-400 min-h-[100px] resize-none"
+            placeholder="e.g., A cute but wobbly wooden chair..."
+            className="w-full p-6 bg-gray-50/50 rounded-[2rem] border border-pink-50 focus:outline-none focus:ring-4 focus:ring-pink-100 min-h-[140px] resize-none placeholder:text-gray-300 text-gray-700 font-medium transition-all"
           />
         </div>
 
@@ -82,55 +82,56 @@ const RequestPage: React.FC = () => {
           <button
             onClick={handleClassify}
             disabled={isClassifying || (!description && !image)}
-            className="w-full py-4 bg-rose-400 text-white font-black rounded-2xl shadow-lg shadow-rose-200 hover:bg-rose-500 transition-colors disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2"
+            className="w-full py-5 bg-pink-300 text-white font-black text-lg rounded-[2rem] shadow-xl shadow-pink-100 hover:bg-pink-400 transition-all squishy-button disabled:opacity-40 disabled:shadow-none flex items-center justify-center gap-3"
           >
             {isClassifying ? (
               <Loader2 className="animate-spin" />
             ) : (
-              'AI 분류 및 비용 산정하기'
+              <><Sparkles size={20} /> Magic Analysis</>
             )}
           </button>
         )}
 
         {classificationResult && (
-          <div className="p-6 bg-rose-50 rounded-3xl border border-rose-100 animate-in zoom-in-95 duration-300 space-y-4">
-            <div className="flex items-center gap-2 text-rose-600 font-bold mb-2">
-              <CheckCircle2 size={20} />
-              <span>AI 분석 결과</span>
+          <div className="p-8 bg-white rounded-[3rem] border border-pink-50 shadow-2xl shadow-pink-200/20 animate-in zoom-in-90 duration-500 space-y-6">
+            <div className="flex items-center gap-2 text-pink-400 font-bold justify-center mb-2">
+              <Sparkles size={20} className="fill-pink-100" />
+              <span className="font-cute text-2xl tracking-wide">Result is here!</span>
+              <Sparkles size={20} className="fill-pink-100" />
             </div>
             
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-3 rounded-xl">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">분류 품목</p>
-                <p className="font-bold text-gray-700">{classificationResult.itemName}</p>
+              <div className="bg-pink-50/30 p-4 rounded-[2rem] text-center">
+                <p className="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1">Item</p>
+                <p className="font-bold text-gray-700 font-cute text-xl">{classificationResult.itemName}</p>
               </div>
-              <div className="bg-white p-3 rounded-xl">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">예상 수거비용</p>
-                <p className="font-bold text-rose-600">{classificationResult.estimatedValue}</p>
+              <div className="bg-emerald-50/30 p-4 rounded-[2rem] text-center">
+                <p className="text-[10px] text-emerald-300 font-bold uppercase tracking-widest mb-1">Cost</p>
+                <p className="font-bold text-emerald-500 font-cute text-xl">{classificationResult.estimatedValue}</p>
               </div>
             </div>
 
-            <div className="bg-white p-4 rounded-xl space-y-2">
-              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">배출 방법</p>
-              <p className="text-sm text-gray-600 leading-relaxed">{classificationResult.disposalMethod}</p>
+            <div className="bg-blue-50/30 p-5 rounded-[2rem] space-y-2">
+              <p className="text-[10px] text-blue-300 font-bold uppercase tracking-widest">How to Dispose</p>
+              <p className="text-sm text-gray-600 font-medium leading-relaxed">{classificationResult.disposalMethod}</p>
             </div>
 
             {classificationResult.precautions && (
-              <div className="flex gap-2 p-3 bg-red-50 rounded-xl text-red-600 text-xs">
-                <AlertCircle size={14} className="shrink-0 mt-0.5" />
+              <div className="flex gap-2 p-4 bg-rose-50/50 rounded-[2rem] text-rose-400 text-xs font-bold items-center border border-rose-100">
+                <AlertCircle size={16} className="shrink-0" />
                 <p>{classificationResult.precautions}</p>
               </div>
             )}
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex flex-col gap-3 pt-4">
+              <button className="w-full py-4 bg-pink-300 text-white font-black rounded-full shadow-lg squishy-button hover:bg-pink-400">
+                Finish & Request!
+              </button>
               <button 
                 onClick={resetForm}
-                className="flex-1 py-3 bg-white border border-rose-200 text-rose-500 font-bold rounded-xl"
+                className="w-full py-3 bg-white text-pink-300 font-bold text-sm rounded-full hover:text-pink-400 transition-colors"
               >
-                다시 찍기
-              </button>
-              <button className="flex-2 py-3 bg-rose-500 text-white font-bold rounded-xl px-8 shadow-md">
-                신청 완료
+                Start Over
               </button>
             </div>
           </div>

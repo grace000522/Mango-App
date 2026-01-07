@@ -1,9 +1,9 @@
 
 export enum DischargeStatus {
-  PENDING = '대기중',
-  COLLECTING = '수거중',
-  COMPLETED = '완료',
-  CANCELLED = '취소됨'
+  PENDING = 'Pending',
+  COLLECTING = 'Collecting',
+  COMPLETED = 'Completed',
+  CANCELLED = 'Cancelled'
 }
 
 export interface DischargeRequest {

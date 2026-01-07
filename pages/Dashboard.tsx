@@ -1,71 +1,81 @@
 
 import React from 'react';
-import { Coins, Package, Award, ArrowRight, Zap } from 'lucide-react';
+import { Coins, Package, Award, ArrowRight, Zap, Sparkles, Heart } from 'lucide-react';
 import StatCard from '../components/StatCard';
 import { Link } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="flex flex-col gap-8 animate-in fade-in duration-500">
+    <div className="flex flex-col gap-10 animate-in fade-in slide-in-from-bottom-2 duration-700">
       <section>
-        <h2 className="text-2xl font-bold text-gray-800">안녕하세요, 김망고님! 👋</h2>
-        <p className="text-gray-500">오늘도 지구를 위한 배출, 감사합니다.</p>
+        <div className="flex items-center gap-2 mb-1">
+          <h2 className="text-3xl font-bold text-gray-800 tracking-tight leading-tight">Sweet Day, Mango! <Heart className="inline text-pink-400 fill-pink-400" size={24} /></h2>
+        </div>
+        <p className="text-pink-300 font-bold text-sm">Every little bit helps our lovely planet ✨</p>
       </section>
 
-      <section className="grid grid-cols-2 gap-4">
+      <section className="grid grid-cols-2 gap-5">
         <StatCard 
-          label="나의 망고 포인트" 
-          value="12,450 P" 
-          icon={<Coins className="text-rose-600" />} 
-          color="bg-rose-50"
+          label="Mango Points" 
+          value="12,450" 
+          icon={<Coins />} 
+          color="bg-pink-100/50 text-pink-400"
         />
         <StatCard 
-          label="누적 배출 횟수" 
-          value="48 회" 
-          icon={<Package className="text-emerald-600" />} 
-          color="bg-emerald-50"
+          label="Recycle Count" 
+          value="48" 
+          icon={<Package />} 
+          color="bg-emerald-100/50 text-emerald-400"
         />
         <StatCard 
-          label="에코 등급" 
+          label="Eco Rank" 
           value="Silver" 
-          icon={<Award className="text-blue-600" />} 
-          color="bg-blue-50"
+          icon={<Award />} 
+          color="bg-blue-100/50 text-blue-400"
         />
         <StatCard 
-          label="탄소 절감량" 
+          label="Planet Love" 
           value="12.4kg" 
-          icon={<Zap className="text-pink-600" />} 
-          color="bg-pink-50"
+          icon={<Sparkles />} 
+          color="bg-purple-100/50 text-purple-400"
         />
       </section>
 
-      <section className="bg-gradient-to-br from-rose-400 to-pink-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+      <section className="bg-gradient-to-br from-pink-200 via-pink-300 to-rose-300 rounded-[2.5rem] p-8 text-white shadow-lg shadow-pink-200/40 relative overflow-hidden group">
         <div className="relative z-10">
-          <h3 className="text-xl font-bold mb-2">대형 폐기물 배출,<br/>AI로 간편하게 찍으세요</h3>
-          <p className="text-rose-100 text-sm mb-4">분류부터 수거 신청까지 1분이면 끝!</p>
-          <Link to="/request" className="inline-flex items-center gap-2 bg-white text-rose-600 px-5 py-2.5 rounded-full font-bold text-sm shadow-sm hover:scale-105 transition-transform">
-            배출 신청하기 <ArrowRight size={16} />
+          <h3 className="text-2xl font-bold mb-2 leading-tight font-cute">Bulky Waste?<br/>Just snap & chill! 📸</h3>
+          <p className="text-white/90 text-sm mb-6 font-medium">AI does the hard work for you in 1 minute!</p>
+          <Link to="/request" className="inline-flex items-center gap-2 bg-white text-pink-400 px-6 py-3 rounded-full font-bold text-sm shadow-md squishy-button hover:bg-pink-50 transition-colors">
+            Start Now <ArrowRight size={18} />
           </Link>
         </div>
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-110 transition-transform"></div>
+        <div className="absolute -top-5 -left-5 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
       </section>
 
       <section>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-bold text-gray-800">최근 배출 현황</h3>
-          <Link to="/history" className="text-sm text-gray-400">전체보기</Link>
+        <div className="flex justify-between items-center mb-5 px-1">
+          <h3 className="font-bold text-gray-800 text-lg flex items-center gap-2">
+            Recent Magic <Sparkles size={16} className="text-yellow-400" />
+          </h3>
+          <Link to="/history" className="text-xs text-pink-400 font-bold uppercase tracking-widest border-b border-pink-100">See All</Link>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           {[
-            { id: 1, item: '냉장고 (대형)', date: '2024.05.20', status: '수거 대기', color: 'text-rose-500' },
-            { id: 2, item: '목재 테이블', date: '2024.05.15', status: '수거 완료', color: 'text-emerald-500' },
+            { id: 1, item: 'Fancy Refrigerator', date: 'May 20', status: 'Pending', color: 'text-pink-400', bg: 'bg-pink-50/30' },
+            { id: 2, item: 'Cute Wooden Table', date: 'May 15', status: 'Done!', color: 'text-emerald-400', bg: 'bg-emerald-50/30' },
           ].map((item) => (
-            <div key={item.id} className="flex justify-between items-center p-4 bg-gray-50 rounded-2xl border border-gray-100">
-              <div>
-                <p className="font-bold text-gray-700">{item.item}</p>
-                <p className="text-xs text-gray-400">{item.date}</p>
+            <div key={item.id} className={`${item.bg} flex justify-between items-center p-5 rounded-[2rem] border border-white shadow-sm`}>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-300">
+                  <Package size={20} />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-700 font-cute text-lg">{item.item}</p>
+                  <p className="text-[10px] text-gray-400 font-bold tracking-wider">{item.date}</p>
+                </div>
               </div>
-              <span className={`text-sm font-bold ${item.color}`}>{item.status}</span>
+              <span className={`text-xs font-black uppercase tracking-tighter ${item.color}`}>{item.status}</span>
             </div>
           ))}
         </div>
