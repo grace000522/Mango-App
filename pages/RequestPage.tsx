@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Camera, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { classifyWaste } from '../services/geminiService';
+import { classifyWaste } from '../services/geminiService.ts';
 
 const RequestPage: React.FC = () => {
   const [description, setDescription] = useState('');
