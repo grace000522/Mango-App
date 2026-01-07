@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Home, ClipboardList, PlusCircle, MessageSquare, User, Leaf, Bell } from 'lucide-react';
-import Dashboard from './pages/Dashboard';
-import RequestPage from './pages/RequestPage';
-import HistoryPage from './pages/HistoryPage';
-import AIChatPage from './pages/AIChatPage';
+import { Home, ClipboardList, PlusCircle, MessageSquare, Leaf, Bell } from 'lucide-react';
+import Dashboard from './pages/Dashboard.tsx';
+import RequestPage from './pages/RequestPage.tsx';
+import HistoryPage from './pages/HistoryPage.tsx';
+import AIChatPage from './pages/AIChatPage.tsx';
 
 const Navigation = () => {
   const location = useLocation();
