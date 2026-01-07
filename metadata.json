@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Mango System - Discharger Portal",
+  "description": "A smart waste management and resource circulation platform for waste dischargers, featuring AI classification and status tracking.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
